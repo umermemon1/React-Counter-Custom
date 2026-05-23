@@ -1,0 +1,124 @@
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #080402 0%, #1a120e 100%);
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #bdbdbd;
+  padding: 20px;
+  overflow: hidden; /* Prevent scrollbars during animations */
+}
+
+/* Layout Container */
+.buttons-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 40px 30px;
+  border-radius: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  max-width: 90%;
+  width: 400px;
+}
+
+/* Typography */
+.title {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: #e0e0e0;
+  letter-spacing: -0.5px;
+  text-align: center;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  margin-bottom: 10px;
+}
+
+.count {
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  line-height: 1;
+  transition: transform 0.2s ease;
+  width: 100%;
+  text-align: center;
+}
+
+/* Button Group Layout */
+.btn-group {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  width: 100%;
+}
+
+.btn {
+  width: 70px;
+  height: 70px;
+  border-radius: 22px;
+  border: none;
+  font-size: 2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #666362 0%, #2a2827 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  user-select: none;
+}
+
+.btn:hover {
+  transform: scale(1.15) translateY(-2px);
+  background: linear-gradient(135deg, #7a7675 0%, #3a3837 100%);
+  box-shadow: 0 8px 25px rgba(102, 99, 98, 0.3);
+}
+
+.btn:active {
+  transform: scale(0.95);
+}
+
+/* Animation */
+@keyframes pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.25); }
+  100% { transform: scale(1); }
+}
+
+.count.pop {
+  animation: pop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Responsive: Desktop Layout */
+@media (min-width: 768px) {
+  .buttons-wrapper {
+    flex-direction: row;
+    padding: 50px 70px;
+    gap: 80px;
+    width: auto;
+  }
+
+  .count {
+    text-align: left;
+    width: auto;
+  }
+
+  .btn-group {
+    flex-direction: column;
+    width: auto;
+    gap: 30px;
+  }
+}
